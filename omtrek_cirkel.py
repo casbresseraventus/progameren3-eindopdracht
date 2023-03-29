@@ -2,12 +2,15 @@ import math
 import tkinter as tk
 
 # Functie om de berekeningen uit te voeren
-def berekenen():
+class berekenen():
+    diameter_entry = ""
     x = int(diameter_entry.get())
     omtrek = math.pi * x
     straal = x / 2
     oppervlakte = straal * 2 * math.pi
+    omtrek_label = ""
     omtrek_label.config(text=f"De omtrek van uw cirkel is: {omtrek}")
+    oppervlakte_label = ""
     oppervlakte_label.config(text=f"De oppervlakte van uw cirkel is: {oppervlakte}")
 
 # Maak het basisvenster

@@ -1,26 +1,31 @@
 import tkinter as tk
-from tkinter import ttk
-from reistijd_berekenen import ReistijdBerekenaar   # het bestand waar de code is opgeslagen
+from tkinter import messagebox
+from reistijd_berekenen import ReistijdBerekenaar
+from omtrek_cirkel import berekenen
 
-class reistijd_berekenen(ttk.Frame):
-    def __init__(self, container):
-        super().__init__(container)
-        self.reistijd_berekenaar = ReistijdBerekenaar(self)
-        self.reistijd_berekenaar.pack(padx=10, pady=10)
-        
-class omtrek_cirkel(ttk.Frame):
-    def __init__(self, container):
-        super().__init__(container)
-        self.reistijd_berekenaar = ReistijdBerekenaar(self)
-        self.reistijd_berekenaar.pack(padx=10, pady=10)
+# functies voor de programma's
+def program1():
+    messagebox.showinfo("Programma 1", "Dit is programma 1.")
 
-class Menu(ttk.Notebook):
-    def __init__(self, container):
-        super().__init__(container)
-        self.main_page = MainPage(self)
-        self.add(self.main_page, text='Main Page')
+def program2():
+    messagebox.showinfo("Programma 2", "Dit is programma 2.")
 
+# GUI initialisatie
 root = tk.Tk()
-menu = Menu(root)
-menu.pack(expand=True, fill='both')
+root.geometry("500x500")
+# menu maken
+menu_bar = tk.Menu(root)
+
+# submenu's maken
+file_menu = tk.Menu(menu_bar, tearoff=0)
+file_menu.add_command(label="Programma 1", command=ReistijdBerekenaar)
+file_menu.add_command(label="Programma 2", command=berekenen)
+
+# submenu's aan menubalk toevoegen
+menu_bar.add_cascade(label="Programma's", menu=file_menu)
+
+# menubalk aan root window toevoegen
+root.config(menu=menu_bar)
+
+# GUI starten
 root.mainloop()

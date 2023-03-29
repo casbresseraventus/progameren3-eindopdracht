@@ -1,9 +1,14 @@
 import math
 
+x = input("wat is de diameter?\n")
+x = int(x)
 
-diameter = input("Wat is de diameter van de cirkel")
+omtrek = math.pi * x
+omtrek = str(omtrek)
 
+straal = x / 2
 
-omtrek= math.pi * diameter
+oppervlakte = straal * 2 * math.pi
+oppervlakte = str(oppervlakte)
 
-print(omtrek)
+print ("de omtrek van uw cirkel is: " + omtrek + "\n" "en de oppervlakte: " + oppervlakte)
